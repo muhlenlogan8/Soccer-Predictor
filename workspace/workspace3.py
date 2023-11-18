@@ -1,3 +1,4 @@
+# Learning how to implement a linear regression model to see if it can be used for the football data
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
