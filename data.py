@@ -3,13 +3,14 @@ import pandas as pd
 # Read the json file into a dataframe
 df_football = pd.read_json("data.json", orient = "split")
 
+print(df_football["game_score"].unique())
+
 # Create a copy of the dataframe
 df_mod = df_football.copy()
 
 # Remove the extra information from the game_score column of a provided row. Extra information being " (a.e.t.)" and "–"
 def remove_extras(row):
-    row["game_score"] = row["game_score"].replace(" (a.e.t.)", "")
-    row["game_score"] = row["game_score"].replace("–", "-")
+    row["game_score"] = row["game_score"].replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-")
     return row["game_score"]
 
 # Determine the winner of each match and add the winner to the dataframe. Also account for matches that went to penalties, and draws
