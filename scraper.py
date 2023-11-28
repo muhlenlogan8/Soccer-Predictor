@@ -13,6 +13,9 @@ import requests
 # Germany ended up losing their match anyways
 
 # TODO: Account for years such as 1938 where the penalty kick results are not shown in the table I am pulling from
+# Currently this year is in trouble_years and the penalty kick results are set to "N/A" for all matches in this year
+# Must identify if the match went to penalties or not and if it did, find the penalty kick results from another source
+# Nowing if the match is a group stage match or not will help since group stage (a.e.t.) matches didn't go to penalties but later matches did
 
 # List of world cup years
 world_cup_years = ["2018", "2014", "2010", "2006", "2002", "1998", "1994", "1990", "1986", "1982", "1978", "1974", "1970", "1966", "1962", "1958", "1954", "1950", "1938", "1934", "1930"]
