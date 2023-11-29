@@ -4,21 +4,25 @@ import requests
 
 # Weird things to note:
 # Some years prior used golden goal which is no longer used (This is listed as "(a.e.t./g.g.)" in the score column)
+
 # Some years prior (Found in 1954) allow extra time during group stage matches that result in ties if no winner is found after the extra time
 # This is "awesome" because it means there are "(a.e.t.)" entries in the score column but no penalties were taken so I must account for this
-# It also seems that some years don't even show the penalty results in the table I'm pulling from
-# I may compensate for this by checking which team has a game after the fact but there may be a better way
+
+# I initially thought the wikipedia pages for 1934 and 1938 didnt show the penalty kick results but it turns out they just didn't go to penalties
+# Penalties were not used until 1978 so they did replay games if there was a tie after extra time
+# This adds extra data which should ultimatly be a good thing
+
 # Another awesome thing, in 1938, Austria withdrew from the tournament so the match they were supposed to play was a walkover, which is listed as "w/o[a]" in the score column
 # Fun history: Nazi Germany invaded and annexed Austria three months before the 1938 world cup and forced 5 Austrian players to play for the German team
 # Germany ended up losing their match anyways
 
-# TODO: Account for years such as 1938 where the penalty kick results are not shown in the table I am pulling from
-# Currently this year is in trouble_years and the penalty kick results are set to "N/A" for all matches in this year
-# Must identify if the match went to penalties or not and if it did, find the penalty kick results from another source
-# Nowing if the match is a group stage match or not will help since group stage (a.e.t.) matches didn't go to penalties but later matches did
+# Some more fun stuff, I'll have to combine West Germany and East Germany into Germany and Soviet Union into Russia
+# Also have to combine FR Yugoslavia into Yugoslavia
+# Old Yugoslavia and Czechoslovakia were split into multiple nations that have participated in the world cup
+# So, I'm going to leave those for now, maybe needing to remove them altogether later or finding a way to combine them
 
 # List of world cup years
-world_cup_years = ["2018", "2014", "2010", "2006", "2002", "1998", "1994", "1990", "1986", "1982", "1978", "1974", "1970", "1966", "1962", "1958", "1954", "1950", "1938", "1934", "1930"]
+world_cup_years = ["2022", "2018", "2014", "2010", "2006", "2002", "1998", "1994", "1990", "1986", "1982", "1978", "1974", "1970", "1966", "1962", "1958", "1954", "1950", "1938", "1934", "1930"]
 
 # List of years that have the weird extra time during group stage matches
 trouble_years = ["1954", "1938", "1934"]
