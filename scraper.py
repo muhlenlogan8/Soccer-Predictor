@@ -92,5 +92,19 @@ for year in world_cup_years:
     # Add the year's dataframe to final dataframe
     df_football_final = pd.concat([df_football_final, df_football])
 
+
+# Scrape current FIFA ranking
+url = "https://www.fifa.com/fifa-world-ranking/men?dateId=id14212"
+
+page_to_scrape = requests.get(url)
+soup = BeautifulSoup(page_to_scrape.text, "html.parser")
+
+print("Scraping current FIFA ranking")
+
+# Get the table with the ranking data
+ranking_table = soup.find("table", attrs = {"class": "table_rankingTable__7gmV1"})
+ranks = match.find("tr", attrs = {"class": "row_rankingTableFullRow__Y_A4i"}).get_text()
+print(ranks)
+
 # Save the dataframe to a json file
 df_football_final.to_json("data.json", orient = "split")
