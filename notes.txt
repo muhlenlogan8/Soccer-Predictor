@@ -1,0 +1,20 @@
+# Weird things to note:
+# Some years prior used golden goal which is no longer used (This is listed as "(a.e.t./g.g.)" in the score column)
+
+# Some years prior (Found in 1954) allow extra time during group stage matches that result in ties if no winner is found after the extra time
+# This is "awesome" because it means there are "(a.e.t.)" entries in the score column but no penalties were taken so I must account for this
+
+# I initially thought the wikipedia pages for 1934 and 1938 didnt show the penalty kick results but it turns out they just didn't go to penalties
+# Penalties were not used until 1978 so they did replay games if there was a tie after extra time
+# This adds extra data which should ultimatly be a good thing
+
+# Another awesome thing, in 1938, Austria withdrew from the tournament so the match they were supposed to play was a walkover, which is listed as "w/o[a]" in the score column
+# Fun history: Nazi Germany invaded and annexed Austria three months before the 1938 world cup and forced 5 Austrian players to play for the German team
+# Germany ended up losing their match anyways
+
+# Some more fun stuff, I'll have to combine West Germany and East Germany into Germany and Soviet Union into Russia
+# Also have to combine FR Yugoslavia into Yugoslavia
+# Old Yugoslavia and Czechoslovakia were split into multiple nations that have participated in the world cup
+# So, I'm going to leave those for now, maybe needing to remove them altogether later or finding a way to combine them
+
+# 12/3/23 notes: Could optimize data cleaning by essentially moving the whole home team score and away team score thing from data.py to scraper.py (line 54ish)
