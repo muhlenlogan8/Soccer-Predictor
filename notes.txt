@@ -18,3 +18,8 @@
 # So, I'm going to leave those for now, maybe needing to remove them altogether later or finding a way to combine them
 
 # 12/3/23 notes: Could optimize data cleaning by essentially moving the whole home team score and away team score thing from data.py to scraper.py (line 54ish)
+# Also, as of 12/3/23, the wikipedia page of the 1938 world cup has been updating recently
+# The change being made is to the Sweden vs Austria game score
+# As mentioned prior, Austria withdrew from the tournament so the match was a walkover
+# The score has recently been changed to say "3-0" with a break then "Awarded[note 1]"
+# This may change again so I may need to exclude this line or just continue to update until they make their final change

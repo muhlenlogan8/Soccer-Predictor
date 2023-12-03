@@ -55,7 +55,7 @@ def scrape_match_data():
                 # home_score, away_score = 0, 0
                 # if "(a.e.t.)" in score:
                 #     home_score, away_score = map(int, score.replace(" (a.e.t.)", "").replace("–", "-").split("-"))
-                home_score, away_score = map(int, score.replace("\nAwarded", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").split("-"))
+                home_score, away_score = map(int, score.replace("Awarded[note 1]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").split("-"))
                 home_score_list.append(home_score)
                 away_score_list.append(away_score)
 

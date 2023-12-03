@@ -48,7 +48,6 @@ def get_data():
     df_matches = add_winner(df_matches)
     df_matches = df_matches.reset_index(drop = True)
     print(df_matches)
-    
 
 
 get_data()
