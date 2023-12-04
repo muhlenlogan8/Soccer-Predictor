@@ -117,4 +117,5 @@ def get_data():
     return df_final
 
 
-get_data()
+df_test = get_data()
+print(df_test)
