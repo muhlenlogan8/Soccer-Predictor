@@ -114,7 +114,7 @@ def get_data():
     df_matches = df_matches.reset_index(drop = True)
     df_matches = split_matches(df_matches)
     df_final = add_rankings(df_matches, df_ranks)
-    print(df_final)
+    return df_final
 
 
 get_data()
