@@ -1,5 +1,6 @@
 import pandas as pd
 from helper import clean_strings
+from predictors import prepare_data_for_model
 
 # pull json data and return two dataframes
 def pull_json_data():
@@ -116,6 +117,15 @@ def get_data():
     df_final = add_rankings(df_matches, df_ranks)
     return df_final
 
+def prepare_data(df):
+    df = prepare_data_for_model(df)
+    return df
+
 
 df_test = get_data()
+df_test = prepare_data(df_test)
 print(df_test)
+print(df_test.dtypes)
+df_test_to_json = df_test.iloc[:1]
+# print(df_test_to_json)
+# df_test_to_json.to_json("test_data.json", orient = "split")

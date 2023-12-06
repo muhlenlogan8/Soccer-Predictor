@@ -69,6 +69,4 @@ def clean_strings(df):
     print("Combined like countries")
     df = strip_extras(df)
     print("Stripped extras")
-    # df = remove_extras(df)
-    # print("Removed extras")
     return df
