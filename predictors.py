@@ -1,19 +1,11 @@
 # Functions to set up data for machine learning
+import pandas as pd
 
-# Converts winner column to integer value, 1 for home team win, 0 for draw, -1 for away team win (home team loss)
-def winner_to_int(df):
+# Add integer column for winner called "won"
+def add_int_winner(df):
     
-    # Convert winner column to integers helper function
-    def winner_to_int_helper(row):
-        if row["winner"] == row["team"]:
-            return 1
-        elif row["winner"] == "Draw":
-            return 0
-        else:
-            return -1
-        
-    # Apply the winner_to_int_helper function to the dataframe
-    df["winner"] = df.apply(winner_to_int_helper, axis = 1)
+    # Add integer column for winner (1 if the team won, 0 if the team lost or drew)
+    df['won'] = df.apply(lambda row: 1 if row['team'] == row['winner'] else 0, axis=1)
     return df
 
 
@@ -25,10 +17,24 @@ def home_away_to_int(df):
     return df
 
 
-# 
+# Drop unnecessary columns
+def drop_columns(df):
+
+    # Drop unnecessary columns
+    df = df.drop(columns = ["game_score", "pk_score", "winner"], axis = 1)
+    return df
+
+
+# One-hot encode team and opponent columns
+def one_hot_encode(df):
+    
+    # One-hot encode team and opponent columns
+    df = pd.get_dummies(df, columns = ["team", "opponent"])
+    return df
 
 
 def prepare_data_for_model(df):
-    df = winner_to_int(df)
+    df = add_int_winner(df)
     df = home_away_to_int(df)
+    df = drop_columns(df)
     return df

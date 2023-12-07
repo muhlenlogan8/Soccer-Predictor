@@ -104,18 +104,18 @@ def add_rankings(df_matches, df_ranks):
 
     # Restructure columns
     df_result = df_merged[["year", "team", "team_rank", "home_away", "home_score", "game_score", "opp_score", "pk_score", "opponent", "winner"]]
-
     return df_result
 
 
 def get_data():
     df_matches, df_ranks = pull_json_data()
-    df_matches = clean_strings(df_matches)
+    df_matches, df_ranks = clean_strings(df_matches, df_ranks)
     df_matches = add_winner(df_matches)
     df_matches = df_matches.reset_index(drop = True)
     df_matches = split_matches(df_matches)
     df_final = add_rankings(df_matches, df_ranks)
     return df_final
+
 
 def prepare_data(df):
     df = prepare_data_for_model(df)
@@ -125,7 +125,5 @@ def prepare_data(df):
 df_test = get_data()
 df_test = prepare_data(df_test)
 print(df_test)
-print(df_test.dtypes)
-df_test_to_json = df_test.iloc[:1]
-# print(df_test_to_json)
-# df_test_to_json.to_json("test_data.json", orient = "split")
+df_test_json = df_test[:1]
+df_test_json.to_json("test_data.json", orient = "split")
