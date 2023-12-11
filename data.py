@@ -51,7 +51,7 @@ def split_matches(df):
         score.replace("–", "-")
 
         # Get just game score
-        game_score = score.replace("Awarded[note 1]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "")
+        game_score = score.replace("Awarded[a]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "")
 
         # Flip game score
         game_score = game_score[::-1]
@@ -124,6 +124,3 @@ def prepare_data(df):
 
 df_test = get_data()
 df_test = prepare_data(df_test)
-print(df_test)
-df_test_json = df_test[:1]
-df_test_json.to_json("test_data.json", orient = "split")

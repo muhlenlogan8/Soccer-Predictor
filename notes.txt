@@ -23,3 +23,6 @@
 # As mentioned prior, Austria withdrew from the tournament so the match was a walkover
 # The score has recently been changed to say "3-0" with a break then "Awarded[note 1]"
 # This may change again so I may need to exclude this line or just continue to update until they make their final change
+
+# 12/11/23 notes: Awarded[note 1] was changed to Awarded[a] in Wikipedia for the 1938 world cup
+# Hopefully this is the last change but I'm doubtful

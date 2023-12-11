@@ -52,7 +52,7 @@ def scrape_match_data():
                 game_score.append(score)
 
                 # Break up score into home and away scores
-                home_score, away_score = map(int, score.replace("Awarded[note 1]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").split("-"))
+                home_score, away_score = map(int, score.replace("Awarded[a]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").split("-"))
                 home_score_list.append(home_score)
                 away_score_list.append(away_score)
 
