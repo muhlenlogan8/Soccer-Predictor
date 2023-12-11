@@ -26,3 +26,5 @@
 
 # 12/11/23 notes: Awarded[note 1] was changed to Awarded[a] in Wikipedia for the 1938 world cup
 # Hopefully this is the last change but I'm doubtful
+# In runthis.py, the script will run through get_data and print dataframe before going through scrape_data
+# Fixed this by putting the imports in order before the use of the function
