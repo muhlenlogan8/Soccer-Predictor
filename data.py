@@ -4,6 +4,7 @@ from predictors import prepare_data_for_model
 
 # pull json data and return two dataframes
 def pull_json_data():
+    
     df_matches = pd.read_json("match_data.json", orient = "split")
     df_ranks = pd.read_json("rank_data.json", orient = "split")
     return df_matches, df_ranks
@@ -47,6 +48,7 @@ def split_matches(df):
 
     # Helper function to flip the game_score of originally away teams
     def game_score_helper(score):
+        
         # Ensure no strange hyphens are in the score
         score.replace("–", "-")
 
@@ -108,6 +110,7 @@ def add_rankings(df_matches, df_ranks):
 
 
 def get_data():
+    
     df_matches, df_ranks = pull_json_data()
     df_matches, df_ranks = clean_strings(df_matches, df_ranks)
     df_matches = add_winner(df_matches)
@@ -118,6 +121,7 @@ def get_data():
 
 
 def prepare_data(df):
+    
     df = prepare_data_for_model(df)
     return df
 

@@ -91,6 +91,7 @@ def clean_ranks(df):
 
 # Clean strings in dataframe
 def clean_strings(df, df_ranks):
+    
     df = strip_extras(df)
     print("Stripped extras")
     df = combine_like_countries(df)

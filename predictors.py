@@ -34,6 +34,7 @@ def one_hot_encode(df):
 
 
 def prepare_data_for_model(df):
+    
     df = add_int_winner(df)
     df = home_away_to_int(df)
     df = drop_columns(df)

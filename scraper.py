@@ -6,6 +6,7 @@ import time
 
 # Scrapes world cup match data and saves it to a json file
 def scrape_match_data():
+    
     # List of world cup years
     world_cup_years = ["2022", "2018", "2014", "2010", "2006", "2002", "1998", "1994", "1990", "1986", "1982", "1978", "1974", "1970", "1966", "1962", "1958", "1954", "1950", "1938", "1934", "1930"]
 
@@ -85,6 +86,7 @@ def scrape_match_data():
 
 
 def scrape_ranking_data():
+    
     # Set up the Selenium webdriver
     driver = webdriver.Chrome()
     url = "https://us.soccerway.com/teams/rankings/fifa/"
@@ -131,5 +133,6 @@ def scrape_ranking_data():
     
     
 def scrape_data():
+    
     scrape_match_data()
     scrape_ranking_data()
