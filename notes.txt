@@ -28,3 +28,5 @@
 # Hopefully this is the last change but I'm doubtful
 # In runthis.py, the script will run through get_data and print dataframe before going through scrape_data
 # Fixed this by putting the imports in order before the use of the function
+
+# 12/14/23 notes: Since I am replacing West and East Germany to just be Germany, the game where the two play each other results in Germany vs Germany

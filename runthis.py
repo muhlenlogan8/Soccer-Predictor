@@ -15,3 +15,6 @@ df = prepare_data(df)
 print(df)
 
 # Do machine learning stuff here using df
+from modeltest import train_model
+prediction_df = train_model(df)
+print(prediction_df[prediction_df["won"] != prediction_df["prediction"]])

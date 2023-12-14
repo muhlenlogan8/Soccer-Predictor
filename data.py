@@ -96,17 +96,34 @@ def split_matches(df):
 def add_rankings(df_matches, df_ranks):
 
     # Merge the two dataframes on the team column
-    df_merged = pd.merge(df_matches, df_ranks[['team', 'rank']], on='team', how='left')
+    df_merged = pd.merge(df_matches, df_ranks[["team", "rank"]], on = "team", how = "left")
 
     # Rename the rank column
-    df_merged.rename(columns={'rank': 'team_rank'}, inplace=True)
+    df_merged.rename(columns={"rank": "team_rank"}, inplace = True)
+    
+    # Rename team to opponent in df_ranks
+    df_ranks.rename(columns = {"team": "opponent"}, inplace = True)
+    
+    # Merge the two dataframes on the opponent column
+    df_merged = pd.merge(df_merged, df_ranks[["opponent", "rank"]], on = "opponent", how = "left")
+    
+    # # Rename the rank column
+    df_merged.rename(columns={"rank": "opp_rank"}, inplace = True)
 
     # Fill NaN values and convert the team_rank column to integers
-    df_merged['team_rank'] = df_merged['team_rank'].fillna(0).astype(int)
+    df_merged["team_rank"] = df_merged["team_rank"].fillna(0).astype(int)
 
     # Restructure columns
-    df_result = df_merged[["year", "team", "team_rank", "home_away", "home_score", "game_score", "opp_score", "pk_score", "opponent", "winner"]]
+    df_result = df_merged[["year", "team", "team_rank", "home_away", "home_score", "game_score", "opp_score", "pk_score", "opponent", "opp_rank", "winner"]]
     return df_result
+
+
+# Sort df by year column
+def sort_by_year(df):
+        
+        # Sort by year
+        df = df.sort_values(by = "year")
+        return df
 
 
 def get_data():
@@ -117,6 +134,7 @@ def get_data():
     df_matches = df_matches.reset_index(drop = True)
     df_matches = split_matches(df_matches)
     df_final = add_rankings(df_matches, df_ranks)
+    df_final = sort_by_year(df_final)
     return df_final
 
 
