@@ -11,8 +11,9 @@ df = get_data()
 
 # Prepare the data for the model
 from data import prepare_data
-df = prepare_data(df)
+df, ref = prepare_data(df)
 print(df)
+print(ref)
 
 # Do machine learning stuff here using df
 from modeltest import train_model

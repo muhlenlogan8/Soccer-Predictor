@@ -29,8 +29,35 @@ def drop_columns(df):
 def one_hot_encode(df):
     
     # One-hot encode team and opponent columns
-    df = pd.get_dummies(df, columns = ["team", "opponent"])
-    return df
+    team_encoded = pd.get_dummies(df["team"], prefix = "team")
+    opponent_encoded = pd.get_dummies(df["opponent"], prefix = "opponent")
+    
+    # Add columns to df
+    df = pd.concat([df, team_encoded, opponent_encoded], axis = 1)
+    
+    # Mapping of team names to team codes
+    team_mapping = pd.Series(team_encoded.columns, index = team_encoded.idxmax(axis = 1).astype(str).values).to_dict()
+
+    # Mapping of opponent names to opponent codes
+    opponent_mapping = pd.Series(opponent_encoded.columns, index = opponent_encoded.idxmax(axis = 1).astype(str).values).to_dict()
+    
+    # Ref dataframes
+    team_ref = pd.DataFrame(list(team_mapping.items()), columns = ["team_code", "team"])
+    opponent_ref = pd.DataFrame(list(opponent_mapping.items()), columns = ["opponent_code", "opponent"])
+    
+    # Concatinate ref dataframes
+    ref = pd.concat([team_ref, opponent_ref], axis = 1)
+    
+    # Drop original team and opponent of df
+    df = df.drop(columns = ["team", "opponent"], axis = 1)
+    return df, ref
+
+
+# The below fucntion will create a dataframe or dictionary of all possible teams and their encoded values
+# This will be used to encode the team and opponent names in df and then return df along with the reference dataframe or dictionary
+# The reference dataframe or dictionary will be used to decode the encoded values back to the team and opponent names
+def encode_names(df):
+    pass
 
 
 def prepare_data_for_model(df):
@@ -38,4 +65,5 @@ def prepare_data_for_model(df):
     df = add_int_winner(df)
     df = home_away_to_int(df)
     df = drop_columns(df)
-    return df
+    df, ref = one_hot_encode(df)
+    return df, ref

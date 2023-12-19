@@ -140,8 +140,8 @@ def get_data():
 
 def prepare_data(df):
     
-    df = prepare_data_for_model(df)
-    return df
+    df, ref = prepare_data_for_model(df)
+    return df, ref
 
 
 df_test = get_data()
