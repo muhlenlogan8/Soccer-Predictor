@@ -92,6 +92,14 @@ def split_matches(df):
     return df_combined
 
 
+# Correct column names
+def correct_column_names(df):
+    
+    # Rename columns
+    df.rename(columns = {"home_team": "team", "away_team": "opponent", "away_score": "opp_score"}, inplace = True)
+    return df
+
+
 # Add rankings to dataframe
 def add_rankings(df_matches, df_ranks):
 
@@ -114,8 +122,18 @@ def add_rankings(df_matches, df_ranks):
     df_merged["team_rank"] = df_merged["team_rank"].fillna(0).astype(int)
 
     # Restructure columns
-    df_result = df_merged[["year", "team", "team_rank", "home_away", "home_score", "game_score", "opp_score", "pk_score", "opponent", "opp_rank", "winner"]]
+    # df_result = df_merged[["year", "team", "team_rank", "home_away", "home_score", "game_score", "opp_score", "pk_score", "opponent", "opp_rank", "winner"]]
+    df_result = df_merged[["year", "team", "team_rank", "home_score", "game_score", "opp_score", "pk_score", "opponent", "opp_rank", "winner"]]
     return df_result
+
+
+# Create ranking reference dataframe
+def create_rank_ref(df):
+
+    # Create a reference dataframe for the rankings
+    df_rank_ref = df[["team", "team_rank"]].drop_duplicates().reset_index(drop = True)
+    df_rank_ref.rename(columns = {"team_rank": "rank"}, inplace = True)
+    return df_rank_ref
 
 
 # Sort df by year column
@@ -132,17 +150,20 @@ def get_data():
     df_matches, df_ranks = clean_strings(df_matches, df_ranks)
     df_matches = add_winner(df_matches)
     df_matches = df_matches.reset_index(drop = True)
-    df_matches = split_matches(df_matches)
+    # df_matches = split_matches(df_matches)
+    df_matched = correct_column_names(df_matches)
     df_final = add_rankings(df_matches, df_ranks)
     df_final = sort_by_year(df_final)
     return df_final
 
 
+def get_rank_ref(df):
+        
+        df = create_rank_ref(df)
+        return df
+
+
 def prepare_data(df):
     
-    df, ref = prepare_data_for_model(df)
-    return df, ref
-
-
-df_test = get_data()
-df_test = prepare_data(df_test)
+    df = prepare_data_for_model(df)
+    return df

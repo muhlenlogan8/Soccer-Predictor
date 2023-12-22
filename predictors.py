@@ -57,13 +57,19 @@ def one_hot_encode(df):
 # This will be used to encode the team and opponent names in df and then return df along with the reference dataframe or dictionary
 # The reference dataframe or dictionary will be used to decode the encoded values back to the team and opponent names
 def encode_names(df):
-    pass
+    
+    # Create dataframe
+    encoded_df = pd.DataFrame()
+    
+    # Create team column in dataframe and set column elements to every unique value of teams.
+    encoded_df["team"] = df["team"].unique()
+    encoded_df["team_code"] = range(1, encoded_df.count())
+    return df, encoded_df
 
 
 def prepare_data_for_model(df):
     
     df = add_int_winner(df)
-    df = home_away_to_int(df)
+    # df = home_away_to_int(df)
     df = drop_columns(df)
-    df, ref = one_hot_encode(df)
-    return df, ref
+    return df

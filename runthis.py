@@ -11,9 +11,13 @@ df = get_data()
 
 # Prepare the data for the model
 from data import prepare_data
-df, ref = prepare_data(df)
+df = prepare_data(df)
 print(df)
-print(ref)
+
+# Get the ranking reference dataframe
+from data import get_rank_ref
+df_rank_ref = get_rank_ref(df)
+print(df_rank_ref)
 
 # Do machine learning stuff here using df
 from modeltest import train_model

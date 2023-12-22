@@ -50,3 +50,8 @@
 # Thinking multiple datasets could be used such as a model for the home team, away team and both teams combined.
 # If it would work to just have both teams data together to classify that would be preferable
 # but I'm unsure how to classify the values with the correct team for the model to utilize or if this is even possible.
+
+# 12/22/23 notes: Going to try and only use the rank and home vs away columns for prediction
+# I feel the accuracy here won't be incredible since I'd imagine it'll just think the higher ranked team wins but at least I'll have something working initially
+# I may need to investigate other ways of prediction that I've had no exposure to yet
+# This will take some internet digging however
