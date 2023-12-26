@@ -4,6 +4,7 @@ import datetime
 import pandas as pd
 
 df, df_rank_ref = collect_data()
+df_tbl = df.copy()
 teams = sorted(df_rank_ref["team"].tolist())
 value1 = ""
 value2 = ""
@@ -29,7 +30,7 @@ page = """
 
 <|{df_predict_tbl}|table|rebuild=True|>
 
-<|{df}|table|filter|>
+<|{df_tbl}|table|rebuild=True|>
 """
 
 
@@ -49,6 +50,8 @@ def button_pressed(state):
     state.df_predict = prepare_df_predict(state.df_rank_ref, state.df_predict)
     state.df_predict_tbl = state.df_predict.drop(columns = ["home_score", "opp_score"], axis = 1)
     state.df_predict_tbl = state.df_predict_tbl[["year", "team", "team_rank", "opponent", "opp_rank"]]
+
+    state.df_tbl = state.df[state.df["team"].isin([state.value1, state.value2])]
     
     state.pred, state.acc = predict_winner(state.df, state.df_rank_ref, state.df_predict)
     if state.pred == 1:
