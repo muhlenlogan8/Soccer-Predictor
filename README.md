@@ -10,15 +10,23 @@ The application is functioning and does attempt to predict soccer match winners 
 
 ## How Soccer Predictor Works
 
-#### Web Scraping
+#### Web Scraping:
+Packages: BeautifulSoup4 & Selenium
+Two main data sources are pulled from:
+- Wikipedia: World Cup match data is scraped from Wikipedia for each year of the World Cup using beautifulsoup4. An example of what is pulled is below (https://en.wikipedia.org/wiki/2022_FIFA_World_Cup).
+<p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/b8d08081-9000-45dc-bb7b-a0d6dd0c89a5" alt="Home Page" style="border:1px solid black; width:75%;"></p>
+- Soccerway: FIFA rankings are pulled from the Soccerway site using selenium. An example of what is pulled is below (https://us.soccerway.com/teams/rankings/fifa/).
+<p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/a33173c4-4f7c-412e-8c4d-f42bb0796dbe" alt="Home Page" style="border:1px solid black; width:75%;"></p>
 
+#### Data Cleaning:
 
-#### Data Cleaning
+#### Machine Learning:
 
-#### Machine Learning
-
-#### Web Application
+#### Web Application:
 <p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/d01c71dd-892c-4e12-9659-cf0ff5e4ee87" alt="Home Page" style="border:1px solid black; width:100%;"></p>
+
+## Fun Challenges Faced
+Most of the challenges I've faced so far have to do with data collection and cleaning. 
 
 #### Future Enhancements
 - Add more variables for the machine learning model to train on. Possible variables could be average goals scored, average goals against, World Cup games played, World Cup wins, average player cost (will need players on each team currently and their salary), and most recent match result.
