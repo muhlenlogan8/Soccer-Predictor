@@ -12,13 +12,20 @@ The application is functioning and does attempt to predict soccer match winners 
 
 #### Web Scraping:
 Packages: BeautifulSoup4 & Selenium
+
 Two main data sources are pulled from:
-- Wikipedia: World Cup match data is scraped from Wikipedia for each year of the World Cup using beautifulsoup4. An example of what is pulled is below (https://en.wikipedia.org/wiki/2022_FIFA_World_Cup).
+Wikipedia: World Cup match data is scraped from Wikipedia for each year of the World Cup using beautifulsoup4. An example of what is pulled is below (https://en.wikipedia.org/wiki/2022_FIFA_World_Cup).
 <p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/b8d08081-9000-45dc-bb7b-a0d6dd0c89a5" alt="Home Page" style="border:1px solid black; width:75%;"></p>
-- Soccerway: FIFA rankings are pulled from the Soccerway site using selenium. An example of what is pulled is below (https://us.soccerway.com/teams/rankings/fifa/).
+Soccerway: FIFA rankings are pulled from the Soccerway site using selenium. An example of what is pulled is below (https://us.soccerway.com/teams/rankings/fifa/).
 <p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/a33173c4-4f7c-412e-8c4d-f42bb0796dbe" alt="Home Page" style="border:1px solid black; width:75%;"></p>
 
 #### Data Cleaning:
+Packages: Pandas
+
+After pulling the web-scraped data from the sources above, the data is cleaned and organized in a way that allows it to easily be trained on by the machine learning model.
+Some things that had to be accounted for when cleaning the data are below:
+- Since the World Cup data spans from 1930-present, many political conflicts and national changes occurred over this timeframe:
+-   test
 
 #### Machine Learning:
 
