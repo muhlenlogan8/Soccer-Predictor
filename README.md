@@ -10,7 +10,7 @@ The application is functioning and does attempt to predict soccer match winners 
 
 ## How Soccer Predictor Works
 
-#### Web Scraping:
+### Web Scraping
 Packages: beautifulsoup4 & selenium
 
 Two main data sources are pulled from:
@@ -21,23 +21,23 @@ Soccerway: FIFA rankings are pulled from the Soccerway site using selenium. An e
 
 The data is pulled and stored in .json files so the app doesn't have to web scrape for the data on every run.
 
-#### Data Cleaning:
+### Data Cleaning
 Packages: pandas
 Files: Functions/model.py, Functions/modeltest.py
 
 After pulling the web-scraped data from the sources above, the data is cleaned and organized in a way that allows it to easily be trained on by the machine learning model.
 Elements that had to be accounted for when cleaning the data ranged from, country name changes (Soviet Union -> Russia), World Cup rule changes, games that went into penalties, and other political conflicts such as Sweden being awarded a walkover against Austria in 1930 due to the annexation of Austria into the German Reich around this time.
 
-#### Machine Learning:
+### Machine Learning
 Packages: scikit-learn
 
 A random forest classification model is trained and used to predict who will win between two soccer teams. Currently, this model is only using the team's rank as a variable, though I intend on revamping the machine learning part of the app by adding more metrics for the model to train with to improve the model's accuracy.
 
-#### Web Application:
+### Web Application
 The web application was made using Taipy and can be seen below.
 <p align="center"><img src="https://github.com/muhlenlogan8/Soccer-Predictor/assets/100247149/d01c71dd-892c-4e12-9659-cf0ff5e4ee87" alt="Home Page" style="border:1px solid black; width:100%;"></p>
 
-#### Future Enhancements
+## Future Enhancements
 - Add more variables for the machine learning model to train on. Possible variables could be average goals scored, average goals against, World Cup games played, World Cup wins, average player cost (will need players on each team currently and their salary), and most recent match result.
 - Pull more data to train on such as international friendlies and other tournament competitions outside the World Cup.
 - Experiment with other machine learning models
