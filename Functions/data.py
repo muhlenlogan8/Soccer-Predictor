@@ -1,12 +1,12 @@
 import pandas as pd
-from helper import clean_strings
-from predictors import prepare_data_for_model
+from Functions.helper import clean_strings
+from Functions.predictors import prepare_data_for_model
 
 # pull json data and return two dataframes
 def pull_json_data():
     
-    df_matches = pd.read_json("match_data.json", orient = "split")
-    df_ranks = pd.read_json("rank_data.json", orient = "split")
+    df_matches = pd.read_json("Data/match_data.json", orient = "split")
+    df_ranks = pd.read_json("Data/rank_data.json", orient = "split")
     return df_matches, df_ranks
 
 

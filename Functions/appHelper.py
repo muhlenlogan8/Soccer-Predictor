@@ -2,13 +2,13 @@ import pandas as pd
 
 def run_scraper():
     
-    from scraper import scrape_data
+    from Functions.scraper import scrape_data
     scrape_data()
 
 
 def collect_data():
     
-    from data import get_data, prepare_data, get_rank_ref
+    from Functions.data import get_data, prepare_data, get_rank_ref
     df = get_data()
     df = prepare_data(df)
     df_rank_ref = get_rank_ref(df)
@@ -37,7 +37,7 @@ def prepare_df_predict(df_rank_ref, df_predict):
 
 def predict_winner(df, df_rank_ref, df_predict):
     
-    from model import model_for_prediction, model_for_accuracy
+    from Functions.model import model_for_prediction, model_for_accuracy
     acc = model_for_accuracy(df)
     
     pred = model_for_prediction(df, df_predict)
