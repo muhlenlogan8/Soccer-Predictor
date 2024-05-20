@@ -1,6 +1,5 @@
 # Place to run everything prior to implementing taipy stuff
 
-
 # Run the scraper (Creates or updates 2 json files)
 from Functions.scraper import scrape_data
 scrape_data()

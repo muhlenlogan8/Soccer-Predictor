@@ -21,10 +21,10 @@ page = """
 
 <|toggle|theme|>
 
-<|{value1}|selector|lov={teams}|dropdown|label="Select Home Team"|>
-<|{value2}|selector|lov={teams}|dropdown|label="Select Away Team"|>
+<|{value1}|selector|lov={teams}|dropdown|label=Select Home Team|>
+<|{value2}|selector|lov={teams}|dropdown|label=Select Away Team|>
 
-<|button1|button|on_action=button_pressed|label="Predict Winner"|>
+<|button1|button|on_action=button_pressed|label=Predict Winner|>
 
 <|{value3}|>
 
@@ -54,6 +54,7 @@ def button_pressed(state):
     state.df_tbl = state.df[state.df["team"].isin([state.value1, state.value2])]
     
     state.pred, state.acc = predict_winner(state.df, state.df_rank_ref, state.df_predict)
+    print(state.pred, state.acc)
     if state.pred == 1:
         state.value3 = "The model predicts " + state.value1 + " will win with an accuracy of " + str(round(state.acc*100)) + "%"
     elif state.pred == 0:

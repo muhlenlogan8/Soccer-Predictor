@@ -13,7 +13,7 @@ def model_for_accuracy(df):
     
     model = RandomForestClassifier(n_estimators = 50, min_samples_split = 10, random_state = 1)
     model.fit(X_train.drop(["team", "opponent", "home_score", "opp_score"], axis = 1), y_train)
-    
+
     preds = model.predict(X_test.drop(["team", "opponent", "home_score", "opp_score"], axis = 1))
     
     acc = accuracy_score(y_test, preds)
@@ -28,6 +28,6 @@ def model_for_prediction(df, df_predict):
     
     model = RandomForestClassifier(n_estimators = 50, min_samples_split = 10, random_state = 1)
     model.fit(X.drop(["team", "opponent", "home_score", "opp_score"], axis = 1), y)
-    
+
     pred = model.predict(df_predict.drop(["team", "opponent", "home_score", "opp_score"], axis = 1))
     return pred
