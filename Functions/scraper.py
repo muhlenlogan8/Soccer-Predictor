@@ -53,7 +53,7 @@ def scrape_match_data():
                 game_score.append(score)
 
                 # Break up score into home and away scores
-                home_score, away_score = map(int, score.replace("Awarded[a]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").split("-"))
+                home_score, away_score = map(int, score.replace("Awarded[a]", "").replace(" (a.e.t./g.g.)", "").replace(" (a.e.t.)", "").replace("–", "-").replace("w/o", "1-0").split("-"))
                 home_score_list.append(home_score)
                 away_score_list.append(away_score)
 
@@ -81,7 +81,7 @@ def scrape_match_data():
         df_football_final = pd.concat([df_football_final, df_football])
 
     # Save the dataframe to a json file
-    df_football_final.to_json("match_data.json", orient = "split")
+    df_football_final.to_json("Data/match_data.json", orient = "split")
     print("Done scraping match data")
 
 
@@ -129,7 +129,7 @@ def scrape_ranking_data():
 
     print("Done scraping ranking data")
     # Save the dataframe to a json file
-    df_rank.to_json("rank_data.json", orient = "split")
+    df_rank.to_json("Data/rank_data.json", orient = "split")
     
     
 def scrape_data():

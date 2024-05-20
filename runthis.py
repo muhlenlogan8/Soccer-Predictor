@@ -3,7 +3,7 @@
 
 # Run the scraper (Creates or updates 2 json files)
 from Functions.scraper import scrape_data
-# scrape_data()
+scrape_data()
 
 # Get data from the json files and clean it
 from Functions.data import get_data
