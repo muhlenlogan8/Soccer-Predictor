@@ -4,9 +4,9 @@
 # Some years prior (Found in 1954) allow extra time during group stage matches that result in ties if no winner is found after the extra time
 # This is "awesome" because it means there are "(a.e.t.)" entries in the score column but no penalties were taken so I must account for this
 
-# I initially thought the wikipedia pages for 1934 and 1938 didnt show the penalty kick results but it turns out they just didn't go to penalties
+# I initially thought the wikipedia pages for 1934 and 1938 didn't show the penalty kick results but it turns out they just didn't go to penalties
 # Penalties were not used until 1978 so they did replay games if there was a tie after extra time
-# This adds extra data which should ultimatly be a good thing
+# This adds extra data which should ultimately be a good thing
 
 # Another awesome thing, in 1938, Austria withdrew from the tournament so the match they were supposed to play was a walkover, which is listed as "w/o[a]" in the score column
 # Fun history: Nazi Germany invaded and annexed Austria three months before the 1938 world cup and forced 5 Austrian players to play for the German team
@@ -26,7 +26,7 @@
 
 # 12/11/23 notes: Awarded[note 1] was changed to Awarded[a] in Wikipedia for the 1938 world cup
 # Hopefully this is the last change but I'm doubtful
-# In runthis.py, the script will run through get_data and print dataframe before going through scrape_data
+# In runthis.py, the script will run through get_data and print data frame before going through scrape_data
 # Fixed this by putting the imports in order before the use of the function
 
 # 12/14/23 notes: Since I am replacing West and East Germany to just be Germany, the game where the two play each other results in Germany vs Germany
@@ -39,9 +39,9 @@
 # If the scores are near equal then it is classified as a draw.
 
 # Things that are important:
-# Home and away team's preformace overall
-# Home and away team's preformace more recently (past few years)
-# Home and away team's preformace against each other
+# Home and away team's performance overall
+# Home and away team's performance more recently (past few years)
+# Home and away team's performance against each other
 
 # More complex:
 # Importance of team value (cost of players added up)
