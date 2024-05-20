@@ -1,5 +1,5 @@
 from taipy import Gui
-from appHelper import collect_data, predict_winner, prepare_df_predict
+from Functions.appHelper import collect_data, predict_winner, prepare_df_predict
 import datetime
 import pandas as pd
 
