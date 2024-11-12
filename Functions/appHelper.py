@@ -1,13 +1,11 @@
 import pandas as pd
 
 def run_scraper():
-    
     from Functions.scraper import scrape_data
     scrape_data()
 
 
 def collect_data():
-    
     from Functions.data import get_data, prepare_data, get_rank_ref
     df = get_data()
     df = prepare_data(df)
@@ -16,7 +14,6 @@ def collect_data():
 
 
 def prepare_df_predict(df_rank_ref, df_predict):
-    
     # Drop prior ranking columns (This is important for re-running the code every time the button is pressed since it will just continue making new team_rank and opp_rank columns)
     df_predict = df_predict.drop(columns = ["team_rank", "opp_rank"], axis = 1)
     
@@ -36,7 +33,6 @@ def prepare_df_predict(df_rank_ref, df_predict):
 
 
 def predict_winner(df, df_rank_ref, df_predict):
-    
     from Functions.model import model_for_prediction, model_for_accuracy
     acc = model_for_accuracy(df)
     

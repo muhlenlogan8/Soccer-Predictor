@@ -3,7 +3,6 @@ import pandas as pd
 
 # Add integer column for winner called "won"
 def add_int_winner(df):
-    
     # Add integer column for winner (1 if the team won, 0 if the team lost or drew)
     df['won'] = df.apply(lambda row: 1 if row['team'] == row['winner'] else 0, axis=1)
     return df
@@ -11,7 +10,6 @@ def add_int_winner(df):
 
 # Converts home_away column to integer value, 1 for home team, 0 for away team
 def home_away_to_int(df):
-    
     # Convert home_away column to categories then to categories codes (int)
     df["home_away"] = df["home_away"].astype("category").cat.codes
     return df
@@ -19,7 +17,6 @@ def home_away_to_int(df):
 
 # Drop unnecessary columns
 def drop_columns(df):
-
     # Drop unnecessary columns
     df = df.drop(columns = ["game_score", "pk_score", "winner"], axis = 1)
     return df
@@ -27,7 +24,6 @@ def drop_columns(df):
 
 # One-hot encode team and opponent columns
 def one_hot_encode(df):
-    
     # One-hot encode team and opponent columns
     team_encoded = pd.get_dummies(df["team"], prefix = "team")
     opponent_encoded = pd.get_dummies(df["opponent"], prefix = "opponent")
@@ -57,7 +53,6 @@ def one_hot_encode(df):
 # This will be used to encode the team and opponent names in df and then return df along with the reference dataframe or dictionary
 # The reference dataframe or dictionary will be used to decode the encoded values back to the team and opponent names
 def encode_names(df):
-    
     # Create dataframe
     encoded_df = pd.DataFrame()
     
@@ -68,7 +63,6 @@ def encode_names(df):
 
 
 def prepare_data_for_model(df):
-    
     df = add_int_winner(df)
     # df = home_away_to_int(df)
     df = drop_columns(df)

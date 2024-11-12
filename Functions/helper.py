@@ -3,7 +3,6 @@ import pandas as pd
 
 # Modernize countries/teams
 def combine_like_countries(df):
-    
     # Dictionary of mappings from current country names to the country name that should be used
     team_mapping = {
     "East Germany": "Germany",
@@ -24,7 +23,6 @@ def combine_like_countries(df):
 
 # Split Serbia and Montenegro into Serbia and Montenegro
 def split_double_countries(df):
-
     # Helper split_double_countries function
     def split_double_countries_helper(df, name, sub_name1, sub_name2):
         # Create copy of rows with Serbia and Montenegro as home_team and away_team
@@ -54,7 +52,6 @@ def split_double_countries(df):
 
 # Stripping of the home_team and away_team columns to remove \xa0 and whitespace
 def strip_extras(df):
-    
     # Strip the home_team helper function
     def strip_home(row):
         return row["home_team"].strip("\xa0").strip()
@@ -71,7 +68,6 @@ def strip_extras(df):
 
 # Clean the names of the countries in the ranks dataframe
 def clean_ranks(df):
-        
         # Dictionary of mappings from current country names to the country name that should be used
         team_mapping = {
         "IR Iran": "Iran",
@@ -91,7 +87,6 @@ def clean_ranks(df):
 
 # Clean strings in dataframe
 def clean_strings(df, df_ranks):
-    
     df = strip_extras(df)
     print("Stripped extras")
     df = combine_like_countries(df)

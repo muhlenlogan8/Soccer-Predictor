@@ -4,7 +4,6 @@ from sklearn.metrics import accuracy_score
 import pandas as pd
 
 def train_model(df):
-    
     X = df.drop(["won"], axis = 1)
     y = df["won"]
     

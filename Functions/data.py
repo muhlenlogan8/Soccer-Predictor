@@ -4,7 +4,6 @@ from Functions.predictors import prepare_data_for_model
 
 # pull json data and return two dataframes
 def pull_json_data():
-    
     df_matches = pd.read_json("Data/match_data.json", orient = "split")
     df_ranks = pd.read_json("Data/rank_data.json", orient = "split")
     return df_matches, df_ranks
@@ -12,7 +11,6 @@ def pull_json_data():
 
 # add winner column to dataframe
 def add_winner(df):
-
     # Determine the winner of each match and add the winner to the dataframe. Also account for matches that went to penalties, and draws
     def determine_winner(row):
         if row["pk_score"] != "N/A":
@@ -34,7 +32,6 @@ def add_winner(df):
 
 # Split matches into one big dataframe so for each game each team get their own row
 def split_matches(df):
-
     # Initialize lists
     year_list = []
     team_list = []
@@ -48,7 +45,6 @@ def split_matches(df):
 
     # Helper function to flip the game_score of originally away teams
     def game_score_helper(score):
-        
         # Ensure no strange hyphens are in the score
         score.replace("–", "-")
 
@@ -94,7 +90,6 @@ def split_matches(df):
 
 # Correct column names
 def correct_column_names(df):
-    
     # Rename columns
     df.rename(columns = {"home_team": "team", "away_team": "opponent", "away_score": "opp_score"}, inplace = True)
     return df
@@ -102,7 +97,6 @@ def correct_column_names(df):
 
 # Add rankings to dataframe
 def add_rankings(df_matches, df_ranks):
-
     # Merge the two dataframes on the team column
     df_merged = pd.merge(df_matches, df_ranks[["team", "rank"]], on = "team", how = "left")
 
@@ -129,7 +123,6 @@ def add_rankings(df_matches, df_ranks):
 
 # Create ranking reference dataframe
 def create_rank_ref(df):
-
     # Create a reference dataframe for the rankings
     df_rank_ref = df[["team", "team_rank"]].drop_duplicates().reset_index(drop = True)
     df_rank_ref.rename(columns = {"team_rank": "rank"}, inplace = True)
@@ -138,14 +131,12 @@ def create_rank_ref(df):
 
 # Sort df by year column
 def sort_by_year(df):
-        
         # Sort by year
         df = df.sort_values(by = "year")
         return df
 
 
 def get_data():
-    
     df_matches, df_ranks = pull_json_data()
     df_matches, df_ranks = clean_strings(df_matches, df_ranks)
     df_matches = add_winner(df_matches)
@@ -158,12 +149,10 @@ def get_data():
 
 
 def get_rank_ref(df):
-        
-        df = create_rank_ref(df)
-        return df
+    df = create_rank_ref(df)
+    return df
 
 
 def prepare_data(df):
-    
     df = prepare_data_for_model(df)
     return df

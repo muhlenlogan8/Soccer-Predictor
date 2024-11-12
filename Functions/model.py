@@ -5,7 +5,6 @@ import pandas as pd
 
 # Train model with split data to get the accuracy of the model
 def model_for_accuracy(df):
-    
     X = df.drop(["won"], axis = 1)
     y = df["won"]
     
@@ -22,7 +21,6 @@ def model_for_accuracy(df):
 
 # Train model with all data to get prediction
 def model_for_prediction(df, df_predict):
-    
     X = df.drop(["won"], axis = 1)
     y = df["won"]
     
