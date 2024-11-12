@@ -35,7 +35,6 @@ page = """
 
 
 def on_change(state, var_name, var_value):
-    
     if var_name == "value1":
         state.value1 = var_value
     elif var_name == "value2":
@@ -43,7 +42,6 @@ def on_change(state, var_name, var_value):
 
 
 def button_pressed(state):
-    
     state.value3 = "Predicting..."
     state.df_predict["team"] = state.value1
     state.df_predict["opponent"] = state.value2
