@@ -23,6 +23,7 @@ The data is pulled and stored in .json files so the app doesn't have to web scra
 
 ### Data Cleaning
 Packages: pandas
+
 Files: Functions/model.py, Functions/modeltest.py
 
 After pulling the web-scraped data from the sources above, the data is cleaned and organized in a way that allows it to easily be trained on by the machine learning model.
